@@ -31,10 +31,10 @@ public class Main {
         producto1.setStock(10);
         
         Producto producto2 = new Producto();
-        producto1.setNombre("teclado");
-        producto1.setPrecio(1200.00);
-        producto1.setFechaAlta(new Date());
-        producto1.setStock(10);
+        producto2.setNombre("teclado");
+        producto2.setPrecio(1200.00);
+        producto2.setFechaAlta(new Date());
+        producto2.setStock(10);
         
         
         cliente.agregarProducto(producto1);
