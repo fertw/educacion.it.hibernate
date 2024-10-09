@@ -49,4 +49,12 @@ public class ProductoService {
 	public List<Producto> obtenerProductosConStockMenorA(Integer stock) {
 		return productoRepository.findByStockLessThan(stock);
 	}
+	
+	public List<Producto> buscarProductosPorPrecioMayor(Double precio) {
+		return productoRepository.buscarProductosPorPrecioMayor(precio);
+	}
+	
+	public List<Producto> buscarProductosSinStock() {
+        return productoRepository.buscarProductosSinStock();
+    }
 }

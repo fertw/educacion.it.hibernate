@@ -44,4 +44,8 @@ public class ClienteService {
     public void eliminarCliente(Long id) {
         clienteRepository.deleteById(id);
     }
+
+	public List<Cliente> buscarClientePorNombre(String nombre) {
+		return clienteRepository.findByNombre(nombre);
+	}
 }
