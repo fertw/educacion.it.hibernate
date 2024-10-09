@@ -19,9 +19,9 @@ public class ProductoController {
 	@Autowired
 	private ProductoService productoService;
 	
-	@GetMapping("/sin-stock")
+	@GetMapping("/sinstock")
 	public List<Producto> obtenerTodosLosProductosSinStock() {
-		return productoService.obtenerTodosLosProductos();
+		return productoService.buscarProductosSinStock();
 	}
 	
 	@PostMapping
