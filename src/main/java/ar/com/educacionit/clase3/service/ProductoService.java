@@ -2,7 +2,10 @@ package ar.com.educacionit.clase3.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Pageable;
 
 import ar.com.educacionit.clase3.model.Producto;
 import ar.com.educacionit.clase3.repository.ProductoRepository;
@@ -57,4 +60,9 @@ public class ProductoService {
 	public List<Producto> buscarProductosSinStock() {
         return productoRepository.buscarProductosSinStock();
     }
+
+	public Page<Producto> obtenerProductosPaginados(int page, int size) {
+		Pageable pageable = PageRequest.of(page, size);
+		return productoRepository.findAll(pageable);
+	}
 }

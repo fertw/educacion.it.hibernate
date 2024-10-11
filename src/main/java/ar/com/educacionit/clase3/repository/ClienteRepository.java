@@ -24,4 +24,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	@Query(value = "SELECT * FROM cliente WHERE apellido = :apellido", nativeQuery = true)
 	List<Cliente> buscarPorApellido(@Param("apellido") String apellido);
 	
+	boolean existsByEmail(String email);
+	
 }

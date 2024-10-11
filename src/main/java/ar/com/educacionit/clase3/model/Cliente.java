@@ -3,6 +3,7 @@ package ar.com.educacionit.clase3.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.com.educacionit.clase3.validator.UniqueEmail;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="cliente")
@@ -22,11 +24,14 @@ public class Cliente {
     private Long id;
     
     @Column(name="nombre", nullable=false)
+    @NotNull(message="El nombre no puede ser nulo")
     private String nombre;
     
     @Column(name="apellido", nullable=false)
     private String apellido;
     
+    
+    @UniqueEmail
     @Column(name="email")
     private String email;
     

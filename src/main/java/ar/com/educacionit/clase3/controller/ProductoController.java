@@ -3,10 +3,12 @@ package ar.com.educacionit.clase3.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ar.com.educacionit.clase3.model.Producto;
@@ -27,6 +29,11 @@ public class ProductoController {
 	@PostMapping
 	public Producto guardarProducto(@RequestBody Producto producto) {
 		return productoService.guardarProducto(producto);
+	}
+	
+	@GetMapping ("paginado")
+	public Page<Producto> obtenerProductosPaginados(@RequestParam int page, @RequestParam int size) {
+		return productoService.obtenerProductosPaginados(page, size);
 	}
 	
 }
